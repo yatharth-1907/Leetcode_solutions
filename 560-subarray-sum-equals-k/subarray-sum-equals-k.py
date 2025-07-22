@@ -7,7 +7,8 @@ class Solution:
 
         for num in nums:
             sum+=num
-            count+=hashmap[sum-k]
+            if sum-k in hashmap:
+                count+=hashmap[sum-k]
             hashmap[sum]+=1
         
         return count
