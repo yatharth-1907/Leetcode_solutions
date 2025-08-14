@@ -4,29 +4,26 @@ class Solution:
         nums.sort()
         
         for i in range(len(nums)):
-            if i > 0 and nums[i] == nums[i - 1]:
-                continue  # Skip duplicates for i
-            
-            left = i + 1
-            right = len(nums) - 1
-            
-            while left < right:
-                total = nums[i] + nums[left] + nums[right]
-                
-                if total == 0:
-                    ans.append([nums[i], nums[left], nums[right]])
-                    left += 1
-                    right -= 1
-                    
-                    # Skip duplicates for left and right
-                    while left < right and nums[left] == nums[left - 1]:
-                        left += 1
-                    while left < right and nums[right] == nums[right + 1]:
-                        right -= 1
-                        
-                elif total < 0:
-                    left += 1
+            if(i>0 and nums[i]==nums[i-1]):
+                continue
+            j= i+1
+            k=len(nums)-1
+            while j<k:
+                addition=nums[i]+nums[j]+nums[k]
+                if addition >0:
+                    k-=1
+
+                elif addition < 0:
+                    j+=1
+
                 else:
-                    right -= 1
-        
+                    temp=[nums[i],nums[j],nums[k]]
+                    ans.append(temp)
+                    j+=1
+                    k-=1
+                    while (j<k and nums[j]== nums[j-1]):
+                        j+=1
+                    while (j<k and nums[k] == nums[k+1] ):
+                        k-=1
+
         return ans
