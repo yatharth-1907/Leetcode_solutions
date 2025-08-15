@@ -1,7 +1,7 @@
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
-        closest=100000
+        closest=nums[0]+nums[1]+nums[2]
         
         for i in range(len(nums)):
             if i>0 and nums[i]==nums[i-1]:
@@ -13,7 +13,7 @@ class Solution:
                 addition=nums[i]+nums[j]+nums[k]
                 if abs(target-closest)> abs(target-addition):
                     closest= addition 
-                     
+
                 if addition >target:
                     k-=1
                 
