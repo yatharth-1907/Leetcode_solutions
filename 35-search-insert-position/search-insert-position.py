@@ -9,8 +9,9 @@ class Solution:
                 ans=min(ans,mid)
             if nums[mid]>target:
                 t=mid-1
-                mid=(h+t)//2
+                
             else:
                 h=mid+1
-                mid=(h+t)//2
+                
+            mid=(h+t)//2
         return ans
